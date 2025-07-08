@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Products</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <h1 class="main-heading"><a href="#" class="main-heading-link">Random Products</a></h1>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#map">Location</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="burger" id="burger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="products">
+      <h2>Our Products</h2>
+      <div id="product-list" class="product-list">
+        <!-- Products will be loaded here by JS -->
+      </div>
+    </section>
+
+<section id="about">
+  <div class="about-container">
+    <h2>About Random Products</h2>
+    <p>
+      <span id="about-typed" data-text="Welcome to Random Products! We are dedicated to bringing you a unique and ever-changing selection of interesting, useful, and sometimes quirky items. Our goal is to make online shopping fun and full of discovery—whether you're looking for something practical, a gift, or just a little surprise for yourself. Every visit brings new possibilities. Enjoy exploring our curated collection!"></span>
+    </p>
+  </div>
+</section>
+
+    <section id="contact" class="contact-flex">
+      <div class="contact-form-wrapper">
+        <h2>Contact Us</h2>
+        <form id="contact-form" autocomplete="off">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="personal-number">Telephone Number:</label>
+          <input type="tel" id="personal-number" name="personal-number" required pattern="\+995\s*\d{3}\s*\d{2}\s*\d{2}\s*\d{2}" value="+995 ">
+
+          <label for="personal-id">Personal ID (optional):</label>
+          <div class="id-wrapper">
+            <input type="text" id="personal-id" name="personal-id" maxlength="11" pattern="\d*" inputmode="numeric" autocomplete="off" placeholder="e.g. 35802435182">
+            <button type="button" id="toggle-id-visibility" class="toggle-id-btn">Hide</button>
+          </div>
+
+          <button type="submit">Register</button>
+        </form>
+        <div id="cart-section">
+          <h3>Selected Products</h3>
+          <div id="cart-products"></div>
+        </div>
+      </div>
+      <div class="contact-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Minimalistic nature" class="contact-image" />
+      </div>
+    </section>
+  </main>
+
+  <section id="map">
+    <h2>Location</h2>
+    <div id="google-map" style="width:100%;height:350px;">
+      <iframe
+        src="https://www.google.com/maps?q=Business+and+Technology+University+Tbilisi&output=embed"
+        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <div id="cookie-notification" class="cookie-notification-modal">
+    <div class="cookie-modal-content">
+      <span class="cookie-modal-text">
+        🍪 This website uses cookies to ensure you get the best experience. See our <a href="#" class="cookie-link">cookie policy</a>.
+      </span>
+      <button id="accept-cookies" class="cookie-accept-btn">Accept</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <h3>Random Products</h3>
+        <p>&copy; All Rights Reserved</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#map">Location</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>Email: <a href="mailto:info@randomproducts.ge">info@randomproducts.ge</a></p>
+        <p>Phone: <a href="tel:+995558010101">+995 558 01 01 01</a></p>
+        <div class="footer-social">
+          <a href="#" title="Facebook" class="footer-social-icon"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width:22px;height:22px;"></a>
+          <a href="#" title="Instagram" class="footer-social-icon"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:22px;height:22px;"></a>
+          <a href="#" title="Twitter" class="footer-social-icon"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" style="width:22px;height:22px;"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-to-top" title="Scroll to top">&#8679;</button>
+
+  <script src="js/javascript.js"></script>
+</body>
+</html>
