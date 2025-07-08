@@ -114,7 +114,10 @@ async function fetchProducts() {
         updateCartDisplay();
         showNotification('Product added to cart!');
       });
-      card.querySelector('.view-detail').addEventListener('click', () => {
+      const viewDetailBtn = card.querySelector('.view-detail');
+      viewDetailBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         window.location.href = `description.html?id=${product.id}`;
       });
       productList.appendChild(card);

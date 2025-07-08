@@ -31,6 +31,16 @@ function showNotification(message) {
   }, 1500);
 }
 
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  
+  const cartCountElement = document.querySelector('.cart-count');
+  if (cartCountElement) {
+    cartCountElement.textContent = totalItems;
+  }
+}
+
 async function loadProductDetail() {
   const id = getProductId();
   if (!id) {
@@ -46,17 +56,21 @@ async function loadProductDetail() {
       <img src="${product.image}" alt="${product.title}" style="max-width:140px;max-height:140px;object-fit:contain;display:block;margin:0 auto 12px;">
       <p>${product.description}</p>
       <strong>$${product.price}</strong>
-      <button id="add-to-cart-detail">Add to Cart</button>
+      <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+        <button id="add-to-cart-detail">Add to Cart</button>
+        <button id="back-to-products" onclick="window.location.href='index.html#products'">Back to Products</button>
+      </div>
     `;
     document.getElementById('add-to-cart-detail').addEventListener('click', () => {
-      let cart = JSON.parse(sessionStorage.getItem('cart') || '[]');
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
       const existing = cart.find(p => p.id === product.id);
       if (existing) {
         existing.quantity++;
       } else {
         cart.push({ id: product.id, title: product.title, image: product.image, price: product.price, quantity: 1 });
       }
-      sessionStorage.setItem('cart', JSON.stringify(cart));
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
       showNotification('Product added to cart!');
     });
   } catch (err) {
@@ -64,4 +78,7 @@ async function loadProductDetail() {
   }
 }
 
-window.onload = loadProductDetail; 
+window.onload = function() {
+  updateCartCount();
+  loadProductDetail();
+}; 
